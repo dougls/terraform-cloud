@@ -13,6 +13,11 @@
 #  }
 #}
 
+resource "aws_db_subnet_group" "subnet-rds" {
+  name       = "subnet-rds"
+  subnet_ids = ["${var.subnetA}", "${var.subnetB}", "${var.subnetC}"]
+}
+
 resource "aws_db_instance" "food_challenge" {
   db_name                      = "foodchallenge"
   engine                       = "postgresql"
@@ -26,7 +31,7 @@ resource "aws_db_instance" "food_challenge" {
 #  max_allocated_storage        = var.maxStorage
   multi_az                     = false
   vpc_security_group_ids       = [var.securityGroupId]
-  db_subnet_group_name         = ["subnet-07602af85b7b1c946", "subnet-00c83d7f026e8b29c", "subnet-09270b32bae1426ff"]
+  db_subnet_group_name         = aws_db_subnet_group.subnet-rds.id
   apply_immediately            = true
   skip_final_snapshot          = true
   publicly_accessible          = false
