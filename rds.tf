@@ -21,7 +21,7 @@ resource "aws_db_instance" "food_challenge" {
   username                     = "foodchallenge"
   password                     = "root1234"
   instance_class               = "db.t3.micro"
-  storage_type                 = var.storageType
+#  storage_type                 = var.storageType
   allocated_storage            = 10
 #  max_allocated_storage        = var.maxStorage
   multi_az                     = false
