@@ -22,9 +22,9 @@ resource "aws_db_instance" "food_challenge" {
   db_name                      = "foodchallenge"
   engine                       = "postgresql"
   engine_version               = "13.10"
-  identifier                   = "rds"
+  identifier                   = "rds-teste"
   username                     = "foodchallenge"
-  password                     = "root1234"
+  password                     = "fiap2024"
   instance_class               = "db.t3.micro"
   storage_type                 = "gp3"
   allocated_storage            = 20
