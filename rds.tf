@@ -20,7 +20,7 @@ resource "aws_db_subnet_group" "subnet-rds" {
 
 resource "aws_db_instance" "food_challenge" {
   db_name                      = "foodchallenge"
-  engine                       = "postgresql"
+  engine                       = "postgres"
   engine_version               = "13.10"
   identifier                   = "rds-teste"
   username                     = "foodchallenge"
