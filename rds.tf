@@ -26,11 +26,11 @@ resource "aws_db_instance" "food_challenge" {
   username                     = "foodchallenge"
   password                     = "root1234"
   instance_class               = "db.t3.micro"
-#  storage_type                 = var.storageType
-  allocated_storage            = 10
-#  max_allocated_storage        = var.maxStorage
+  storage_type                 = "gp3"
+  allocated_storage            = 20
+  max_allocated_storage        = 30
   multi_az                     = false
-  vpc_security_group_ids       = [var.securityGroupId]
+  vpc_security_group_ids       = ["${var.securityGroupId}"]
   db_subnet_group_name         = aws_db_subnet_group.subnet-rds.id
   apply_immediately            = true
   skip_final_snapshot          = true
