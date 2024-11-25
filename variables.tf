@@ -1,23 +1,23 @@
 variable "awsAcademyRole" {
-  default = "arn:aws:iam::241088372735:role/LabRole"
+  default = "arn:aws:iam::786031773255:role/LabRole"
 }
 
 variable "subnetA" {
-  default = "subnet-07602af85b7b1c946"
+  default = "subnet-039b8e1e51a116b97"
 }
 
 variable "subnetB" {
-  default = "subnet-00c83d7f026e8b29c"
+  default = "subnet-0a9bd978561ed53e1"
 }
 
 variable "subnetC" {
-  default = "subnet-09270b32bae1426ff"
+  default = "subnet-04508092f851df36c"
 }
 
 variable "securityGroupId" {
-  default = "sg-0cba58547c3ae2528"
+  default = "sg-074d675709244e802"
 }
 
 variable "principalArn" {
-  default = "arn:aws:iam::241088372735:role/voclabs"
+  default = "arn:aws:iam::786031773255:role/voclabs"
 }
