@@ -16,8 +16,4 @@ resource "kubectl_manifest" "ingress" {
                 serviceName: test
                 servicePort: 80
     YAML
-  
-  depends_on = [
-    kubectl_manifest.service
-  ]
 }
