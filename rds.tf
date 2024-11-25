@@ -1,18 +1,3 @@
-#resource "aws_db_instance" "food_challenge" {
-#  allocated_storage      = 10
-#  db_name                = "foodchallenge"
-#  engine                 = "postgresql"
-#  instance_class         = "db.t3.micro"
-#  identifier             = "rds"
-#  username               = "foodchallenge"
-#  password               = "root1234"
-#  skip_final_snapshot    = true
-#  vpc_security_group_ids = [var.securityGroupId]
-#  tags = {
-#    Name = "rds"
-#  }
-#}
-
 resource "aws_db_subnet_group" "subnet-rds" {
   name       = "subnet-rds"
   subnet_ids = ["${var.subnetA}", "${var.subnetB}", "${var.subnetC}"]
@@ -21,7 +6,7 @@ resource "aws_db_subnet_group" "subnet-rds" {
 resource "aws_db_instance" "food_challenge" {
   db_name                      = "foodchallenge"
   engine                       = "postgres"
-  engine_version               = "13.10"
+  engine_version               = "13.18"
   identifier                   = "rds-teste"
   username                     = "foodchallenge"
   password                     = "fiap2024"
