@@ -1,4 +1,4 @@
-resource "kubectl_manifest" "test" {
+resource "kubectl_manifest" "ingress" {
     yaml_body = <<YAML
       apiVersion: networking.k8s.io/v1
       kind: Ingress
@@ -16,4 +16,8 @@ resource "kubectl_manifest" "test" {
                 serviceName: test
                 servicePort: 80
     YAML
+  
+  depends_on = [
+    kubectl_manifest.service
+  ]
 }
