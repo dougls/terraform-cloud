@@ -1,5 +1,5 @@
-resource "aws_eks_cluster" "tech_challenge_cluster" {
-  name     = "tech-challenge-cluster"
+resource "aws_eks_cluster" "eks_cluster_fiap" {
+  name     = "fiap-eks"
   role_arn = var.awsAcademyRole
 
   vpc_config {
@@ -12,15 +12,15 @@ resource "aws_eks_cluster" "tech_challenge_cluster" {
   }
 }
 
-resource "aws_eks_access_entry" "tech_challenge_cluster_access_entry" {
+resource "aws_eks_access_entry" "eks_cluster_access_entry" {
   cluster_name      = aws_eks_cluster.tech_challenge_cluster.name
   principal_arn     = var.principalArn
   kubernetes_groups = ["group-1", "group-2"]
   type              = "STANDARD"
 }
 
-resource "aws_eks_access_policy_association" "tech_challenge_cluster_access_entry_policy_association" {
-  cluster_name  = aws_eks_cluster.tech_challenge_cluster.name
+resource "aws_eks_access_policy_association" "eks_cluster_access_entry_policy_association" {
+  cluster_name  = aws_eks_cluster.eks_cluster_fiap.name
   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
   principal_arn = var.principalArn
 
@@ -29,9 +29,9 @@ resource "aws_eks_access_policy_association" "tech_challenge_cluster_access_entr
   }
 }
 
-resource "aws_eks_node_group" "food_challenge" {
-  cluster_name    = aws_eks_cluster.tech_challenge_cluster.name
-  node_group_name = "food-challenge"
+resource "aws_eks_node_group" "eks_node" {
+  cluster_name    = aws_eks_cluster.eks_cluster_fiap.name
+  node_group_name = "fiap-node"
   node_role_arn   = var.awsAcademyRole
   subnet_ids      = ["${var.subnetA}", "${var.subnetB}", "${var.subnetC}"]
   instance_types  = ["t3.micro"]
