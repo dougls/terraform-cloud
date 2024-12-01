@@ -17,7 +17,7 @@ resource "aws_eks_cluster" "eks_cluster_fiap" {
 }
 
 resource "aws_eks_access_entry" "eks_cluster_access_entry" {
-  cluster_name      = aws_eks_cluster.tech_challenge_cluster.name
+  cluster_name      = aws_eks_cluster.eks_cluster_fiap.name
   principal_arn     = var.principalArn
   kubernetes_groups = ["group-1", "group-2"]
   type              = "STANDARD"
