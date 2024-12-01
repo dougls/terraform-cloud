@@ -1,5 +1,6 @@
 variable "awsAcademyRole" {
   default = "arn:aws:iam::xxxxxxxxxx:role/LabRole"
+}
 
 resource "aws_eks_cluster" "eks_cluster_fiap" {
   name     = "fiap-eks"
