@@ -7,7 +7,7 @@ resource "aws_eks_cluster" "eks_cluster_fiap" {
   role_arn = var.awsAcademyRole
 
   vpc_config {
-    subnet_ids         = ["${var.subnetA}", "${var.subnetB}", "${var.subnetC}"]
+    subnet_ids         = [for subnet in data.aws_subnet.subnet : subnet.id if subnet.availability_zone != "${var.regionDefault}e"]
     security_group_ids = ["${var.securityGroupId}"]
   }
 
